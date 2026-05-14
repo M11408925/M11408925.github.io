@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>羽球運動科學分析報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#0ea5e9',    /* Sky Blue */
+                            secondary: '#6366f1',  /* Indigo */
+                            accent: '#f43f5e',     /* Rose */
+                            dark: '#0f172a',       /* Slate 900 */
+                            card: 'rgba(30, 41, 59, 0.7)'
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        display: ['Outfit', 'Noto Sans TC', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bento-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bento-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(14, 165, 233, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .video-container video {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .audio-player {
+            width: 100%;
+            max-width: 400px;
+            filter: invert(1) hue-rotate(180deg) brightness(1.5);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 40%;
+            height: 3px;
+            background: linear-gradient(90deg, #0ea5e9, transparent);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Decorative Elements -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-primary/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-secondary/20 rounded-full blur-[120px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-4 py-12 md:py-20 space-y-24">
+        
+        <!-- Header / Hero Section -->
+        <header class="text-center space-y-6">
+            <div class="inline-block px-4 py-1 rounded-full border border-brand-primary/30 bg-brand-primary/10 text-brand-primary text-sm font-semibold tracking-wider uppercase mb-4 animate-float">
+                Badminton Sports Science
+            </div>
+            <h1 class="text-4xl md:text-7xl font-extrabold font-display leading-tight">
+                羽球運動<span class="gradient-text">科學分析</span>報告
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light">
+                生理、生物力學與傷病預防的整合研究
+            </p>
+            <div class="pt-4 flex flex-col items-center gap-2">
+                <span class="text-slate-500 font-medium">M11408925</span>
+                <p class="text-gray-400">【主題探索報告】by <span class="italic text-brand-accent font-bold">幸忠辰</span></p>
+            </div>
+        </header>
+
+        <!-- 1. 置頂：資訊圖表 Section -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-4 mb-2">
+                <span class="text-brand-primary font-bold text-2xl font-display">01</span>
+                <h2 class="text-2xl font-bold section-title">資訊圖表 Infographic</h2>
+            </div>
+            <div class="image-container bento-item overflow-hidden">
+                <img src='https://opal.google/board/blobs/e2b0b230-4692-48f4-8e1a-019497d7eb13' alt='Badminton Science Infographic' class="w-full object-cover" />
+            </div>
+        </section>
+
+        <!-- 2. 置中：短影片 Section -->
+        <section class="space-y-8 py-12">
+            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                <div class="flex justify-center items-center gap-4 mb-2">
+                    <span class="text-brand-primary font-bold text-2xl font-display">02</span>
+                    <h2 class="text-2xl font-bold section-title">動態分析示範</h2>
+                </div>
+                <p class="text-gray-400">本影片展現了羽球運動的高強度爆發力、殺球動力鏈傳導以及弓箭步的生物力學特點。</p>
+            </div>
+            
+            <div class="flex flex-col items-center gap-8">
+                <div class="video-container glass p-2 md:p-4 w-full flex justify-center">
+                    <video controls src='https://opal.google/board/blobs/b8f44080-dd53-4323-8fa5-2f2e7e5f88e9' alt='Badminton Action Video'></video>
+                </div>
+                
+                <div class="glass px-6 py-4 rounded-2xl flex flex-col md:flex-row items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-brand-primary/20 rounded-full flex items-center justify-center text-brand-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6V11.114A4.369 4.369 0 0015 11c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                            </svg>
+                        </div>
+                        <span class="text-sm font-medium text-gray-300">背景音樂控制</span>
+                    </div>
+                    <audio controls src='https://opal.google/board/blobs/e5b65521-ea89-46e0-a17a-c30979c862d7' alt='Background Music' class="audio-player"></audio>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 置底：報告內容 Section -->
+        <section class="space-y-12">
+            <div class="flex items-center gap-4">
+                <span class="text-brand-primary font-bold text-2xl font-display">03</span>
+                <h2 class="text-2xl font-bold section-title">報告摘要與全文</h2>
+            </div>
+
+            <!-- Bento Summary Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass p-6 rounded-3xl bento-item border-l-4 border-l-blue-500">
+                    <div class="text-brand-primary mb-3"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                    <h3 class="font-bold text-lg mb-2">生理需求</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">羽球屬於高強度間歇運動，結合磷酸原系統（爆發力）與有氧系統（耐力）。</p>
+                </div>
+                <div class="glass p-6 rounded-3xl bento-item border-l-4 border-l-indigo-500">
+                    <div class="text-brand-secondary mb-3"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+                    <h3 class="font-bold text-lg mb-2">生物力學</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">重點分析弓箭步的衝擊力緩衝與殺球動作中的動力鏈傳導。</p>
+                </div>
+                <div class="glass p-6 rounded-3xl bento-item border-l-4 border-l-rose-500">
+                    <div class="text-brand-accent mb-3"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>
+                    <h3 class="font-bold text-lg mb-2">運動傷害</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">下肢為高風險區域，疲勞狀態下的動作控制是受傷關鍵。</p>
+                </div>
+                <div class="glass p-6 rounded-3xl bento-item border-l-4 border-l-emerald-500">
+                    <div class="text-emerald-500 mb-3"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                    <h3 class="font-bold text-lg mb-2">訓練策略</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">建議結合高強度間歇、增強式與神經肌肉訓練以預防傷害。</p>
+                </div>
+            </div>
+
+            <!-- Full Article Content -->
+            <div class="glass p-8 md:p-12 rounded-[2.5rem] space-y-12 leading-relaxed text-gray-300">
+                
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-brand-primary/20 text-brand-primary flex items-center justify-center text-base">一</span>
+                        運動生理學：能量代謝與競技特質
+                    </h3>
+                    <p>羽球是一項具備高度體能挑戰的運動。在生理學（Physiology）層層面，羽球被歸類為高強度間歇運動（High-intensity interval training, HIIT）。比賽過程中的短暫爆發（如跳躍、殺球）主要依賴磷酸原系統（Phosphagen system, ATP-PC）供能；而長盤對抗與賽事整體的持續性，則高度依賴有氧系統（Aerobic system）來維持。研究顯示，高水準運動員具備優異的最大攝氧量（Maximum oxygen uptake, VO2 max），這使其能在激烈的回合後快速恢復。</p>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-brand-primary/20 text-brand-primary flex items-center justify-center text-base">二</span>
+                        運動生物力學：專項技術動作分析
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                            <h4 class="font-bold text-brand-primary mb-2">1. 弓箭步 (Lunge)</h4>
+                            <p class="text-sm">弓箭步是羽球最頻繁使用的步法。從生物力學的角度來看，大跨步著地時膝蓋與腳踝會承受巨大的地面反作用力。足部著地角度與鞋具的緩衝能力對於減少衝擊力至關重要。</p>
+                        </div>
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                            <h4 class="font-bold text-brand-primary mb-2">2. 殺球 (Smash)</h4>
+                            <p class="text-sm">殺球速度取決於動力鏈（Kinetic Chain）的高效傳導。動作起始於下肢推蹬，經過軀幹旋轉，最終傳遞至手臂。關鍵在於肩關節內旋與手腕閃動的協調運用。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-brand-primary/20 text-brand-primary flex items-center justify-center text-base">三</span>
+                        運動傷害流行病學與預防
+                    </h3>
+                    <p>羽球運動傷害以非接觸性的下肢（Lower limb）受傷最為普遍。常見傷勢包括：</p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <li class="flex items-center gap-2 bg-rose-500/10 p-3 rounded-xl border border-rose-500/20"><span class="w-2 h-2 rounded-full bg-rose-500"></span> 踝關節扭傷</li>
+                        <li class="flex items-center gap-2 bg-rose-500/10 p-3 rounded-xl border border-rose-500/20"><span class="w-2 h-2 rounded-full bg-rose-500"></span> 阿基里斯腱斷裂</li>
+                        <li class="flex items-center gap-2 bg-rose-500/10 p-3 rounded-xl border border-rose-500/20"><span class="w-2 h-2 rounded-full bg-rose-500"></span> 膝蓋韌帶損傷</li>
+                    </ul>
+                    <p class="mt-4 italic text-sm text-slate-400">此外，頻繁的過頭擊球易導致肩部撞擊症候群。研究強調，傷害多發生於疲勞導致動作控制（Motor control）能力下降時。</p>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-brand-primary/20 text-brand-primary flex items-center justify-center text-base">四</span>
+                        訓練方法與表現開發
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <span class="text-brand-primary font-bold">01.</span>
+                            <p><strong class="text-white">肌力與體能訓練</strong>：針對核心肌群與下肢穩定性進行強化。</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-brand-primary font-bold">02.</span>
+                            <p><strong class="text-white">增強式訓練</strong>：透過跳躍與爆發力練習，提升場上移動速度與殺球威力。</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-brand-primary font-bold">03.</span>
+                            <p><strong class="text-white">神經肌肉訓練</strong>：特別針對青少年選手，藉此提升動作協調性並降低受傷風險。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10">
+                    <h3 class="text-2xl font-bold text-white mb-4">結論</h3>
+                    <p class="text-lg">羽球運動結合了極高的生理耐力與瞬間爆發力。透過精準的生物力學分析，教練可修正選手技術以提升效率。同時，針對下肢穩定性的神經肌肉訓練與科學化的生理監控，是降低運動傷害、延長運動員生涯的關鍵。</p>
+                </div>
+
+                <!-- References -->
+                <div class="pt-8 border-t border-white/10">
+                    <h4 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">引用文獻來源</h4>
+                    <ol class="text-xs text-gray-500 space-y-2 list-decimal list-inside">
+                        <li>Ahmad, I., et al. (2020). Epidemiology of Injuries in Badminton.</li>
+                        <li>Gheller, R. G., et al. (2020). Physiological and Physical Profiles of Badminton Players.</li>
+                        <li>Guo, Z., et al. (2022). Biomechanical Characteristics of the Badminton Lunge.</li>
+                        <li>Lim, B. H., et al. (2023). Effects of Strength and Conditioning Interventions.</li>
+                        <li>Ramadan, W., et al. (2021). Kinematic Analysis of the Badminton Smash.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Interactive elements for better UX -->
+    <script>
+        // Subtle reveal on scroll could be added here, but keeping it clean for the iframe
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.bento-item');
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
